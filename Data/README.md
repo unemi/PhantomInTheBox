@@ -9,7 +9,8 @@
 -rw-r--r--@ 1 unemi  staff     497  5  5 17:10 CompTM_4500.dat
 -rw-r--r--@ 1 unemi  staff     498  5  5 18:08 CompTM_6363.dat
 -rw-r--r--@ 1 unemi  staff     498  5  5 19:18 CompTM_9000.dat
--rw-r--r--@ 1 unemi  staff      30  5  9 11:49 README.md
+-rw-r--r--@ 1 unemi  staff    1191  5 12 18:09 Params.bdgp
+-rw-r--r--@ 1 unemi  staff     863  5  9 15:11 README.md
 -rwxr-xr-x@ 1 unemi  staff     390  5  7 15:22 WorldSizeTbl.sh
 </pre>
 
@@ -21,4 +22,9 @@ For the frequency histogram on the number of individuals in a partition.
 
 For the computing time performance of the algorithm.
 
+### Params.bdgp
+
+Parameter set for experimental execution.
+
 ---
+&copy; Tatsuo Unemi, 2025.

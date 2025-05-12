@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AgentColor</key>
+	<array>
+		<real>0.68767625093460083</real>
+		<real>0.29930800199508667</real>
+		<real>0.31168356537818909</real>
+	</array>
+	<key>AgentSize</key>
+	<real>0.30000001192092896</real>
+	<key>Alignment</key>
+	<real>0.5</real>
+	<key>Attraction</key>
+	<real>0.10000000149011612</real>
+	<key>Avoidance</key>
+	<real>0.10000000149011612</real>
+	<key>Background</key>
+	<array>
+		<real>0.99999505281448364</real>
+		<real>1</real>
+		<real>1</real>
+	</array>
+	<key>Cohision</key>
+	<real>-0.5</real>
+	<key>Contrast</key>
+	<real>-0.5</real>
+	<key>FogColor</key>
+	<array>
+		<real>0.60000091791152954</real>
+		<real>0.40001162886619568</real>
+		<real>0.20000064373016357</real>
+	</array>
+	<key>Mass</key>
+	<real>-0.60000002384185791</real>
+	<key>Max Speed</key>
+	<real>0.5</real>
+	<key>Min Speed</key>
+	<real>-0.5</real>
+	<key>PopSize</key>
+	<integer>400000</integer>
+	<key>ShadowOpacity</key>
+	<real>0.5</real>
+	<key>Sight Angle</key>
+	<real>0.5</real>
+	<key>Sight Distance</key>
+	<real>0.5</real>
+</dict>
+</plist>

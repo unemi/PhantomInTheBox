@@ -7,7 +7,6 @@
 
 @import Cocoa;
 #import "Comm.h"
-#import "Agent.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

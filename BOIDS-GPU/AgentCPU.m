@@ -121,18 +121,18 @@ BOOL merge_sort(void *srcData, void *workData, NSInteger n,
 		return NO;
 	} else {
 		BOOL m1, m2, *mp1 = &m1;
-		dispatch_group_t grp = dispatch_group_create();
 		dispatch_queue_t que = dispatch_queue_create(NULL, DISPATCH_QUEUE_SERIAL);
-		dispatch_group_async(grp, que, ^{
+		dispatch_block_t block = dispatch_block_create(DISPATCH_BLOCK_ASSIGN_CURRENT, ^{
 			*mp1 = merge_sort(srcData, workData, n/2, eSz, compare); });
+		dispatch_async(que, block);
 		m2 = merge_sort(((char *)srcData) + eSz * n/2,
 			((char *)workData) + eSz * n/2, n-n/2, eSz, compare);
-		dispatch_group_wait(grp, DISPATCH_TIME_FOREVER);
+		dispatch_block_wait(block, DISPATCH_TIME_FOREVER);
 		char *tmp, *result;
 		if (m1) { tmp = srcData; result = workData; }
 		else { tmp = workData; result = srcData; }
 		if (m1 != m2) memcpy(result+eSz*n/2, tmp+eSz*n/2, eSz*(n-n/2));
-		dispatch_group_async(grp, que, ^{ 
+		block = dispatch_block_create(DISPATCH_BLOCK_ASSIGN_CURRENT, ^{ 
 			NSInteger j = 0, k = n / 2;
 			for (NSInteger i = 0; i < n / 2; i ++) {
 				if (j >= n / 2) memcpy(tmp + eSz * i, result + eSz * (k ++), eSz);
@@ -142,6 +142,7 @@ BOOL merge_sort(void *srcData, void *workData, NSInteger n,
 				else memcpy(tmp + eSz * i, result + eSz * (k ++), eSz);
 			}
 		});
+		dispatch_async(que, block);
 		NSInteger j = n / 2 - 1, k = n - 1;
 		for (NSInteger i = n - 1; i >= n / 2; i --) {
 			if (j < 0) memcpy(tmp + eSz * i, result + eSz * (k --), eSz);
@@ -150,7 +151,7 @@ BOOL merge_sort(void *srcData, void *workData, NSInteger n,
 				memcpy(tmp + eSz * i, result + eSz * (j --), eSz);
 			else memcpy(tmp + eSz * i, result + eSz * (k --), eSz);
 		}
-		dispatch_group_wait(grp, DISPATCH_TIME_FOREVER);
+		dispatch_block_wait(block, DISPATCH_TIME_FOREVER);
 		return !m1;
 	}
 }
